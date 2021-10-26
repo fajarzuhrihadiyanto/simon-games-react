@@ -15,37 +15,37 @@ const GameInfo = ({ score, gameModeIndex, difficultyIndex }) => {
 
   const [maxScore, setMaxScore] = useState(0)
 
-  const getMaxScore = async () => {
-    try {
-      const db = app.currentUser.mongoClient('mongodb-atlas').db(process.env.REACT_APP_DB_NAME)
-      const games = db.collection('games')
+  useEffect(() => {
+    const getMaxScore = async () => {
+      try {
+        const db = app.currentUser.mongoClient('mongodb-atlas').db(process.env.REACT_APP_DB_NAME)
+        const games = db.collection('games')
 
-      const result = (await games.aggregate([
-        {
-          $match: {
-            game_mode_id: new BSON.ObjectID(gameMode.id),
-            game_difficulty_id: new BSON.ObjectID(difficulty.id)
-          }
-        },
-        {
-          $group: {
-            _id: null,
-            max: {
-              $max: "$score"
+        const result = (await games.aggregate([
+          {
+            $match: {
+              game_mode_id: new BSON.ObjectID(gameMode.id),
+              game_difficulty_id: new BSON.ObjectID(difficulty.id)
+            }
+          },
+          {
+            $group: {
+              _id: null,
+              max: {
+                $max: "$score"
+              }
             }
           }
-        }
-      ]))[0]?.max || 0
+        ]))[0]?.max || 0
 
-      setMaxScore(result)
-    } catch (err) {
-      alert(err)
+        setMaxScore(result)
+      } catch (err) {
+        alert(err)
+      }
     }
-  }
-
-  useEffect(() => {
+    
     getMaxScore()
-  }, [])
+  }, [difficulty.id, gameMode.id])
 
   return (
     <Grid templateColumns="repeat(2, 1fr)" fontSize="sm" rowGap={2} columnGap={4}>

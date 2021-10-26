@@ -48,7 +48,7 @@ const GameOver = ({resetGame, setStep, gameModeIndex, difficultyIndex, score}) =
   useEffect(() => {
     // Only insert game record if user is authenticated (not anonymous)
     app.currentUser.providerType === 'local-userpass' && insertGame()
-  }, [])
+  }, [insertGame])
   return (
     <>
       <Heading>Game Over</Heading>

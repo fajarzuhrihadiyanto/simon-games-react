@@ -12,7 +12,7 @@ const ModeDifficultySelector = ({ setStep, gameMode, difficulty }) => {
 
   const { soundFXSetting, inGame } = useContext(settingsContext)
   const [ soundFx ] = soundFXSetting
-  const [ _, setInGameStatus ] = inGame
+  const setInGameStatus = inGame[1]
 
   const startBtnHandler = () => {
     soundFx && audio.menuClick.play()

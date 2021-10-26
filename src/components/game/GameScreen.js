@@ -12,7 +12,7 @@ const GameScreen = ({gameModeIndex, difficultyIndex, series, setSeries, setIsGam
   const { beepSetting, musicSetting, inGame } = useContext(settingsContext)
   const [ beep ] = beepSetting
   const [ music ] = musicSetting
-  const [ _, setInGameStatus ] = inGame
+  const setInGameStatus = inGame[1]
 
   // Get game mode and difficulty id
   const difficulty = difficulties[difficultyIndex]
@@ -70,9 +70,7 @@ const GameScreen = ({gameModeIndex, difficultyIndex, series, setSeries, setIsGam
   // THE GAMEPLAY
   useEffect(() => {
     // Set all button to disable before start the series
-    buttonRefs.current.map(button => {
-      button.current.disabled = true
-    })
+    buttonRefs.current.map(button => button.current.disabled = true)
 
     // For all series ...
     series.reduce(async (prevProm, seri) => {
@@ -98,11 +96,9 @@ const GameScreen = ({gameModeIndex, difficultyIndex, series, setSeries, setIsGam
       // return the new job to be finished next (sleep for 100 millisecond)
       return sleep(100)
     }, sleep(1000)).then(() => {
-      buttonRefs.current.map(button => {
-        button.current && (button.current.disabled = false)
-      })
+      buttonRefs.current.map(button => button.current && (button.current.disabled = false))
     })
-  }, [series])
+  }, [beep, buttonInit, series])
 
   return (
     <Grid templateColumns={`repeat(${difficulty.col}, 1fr)`} gap={2} w="full" maxW="lg">

@@ -12,7 +12,7 @@ const Game = ({ gameModeIndex, difficultyIndex, setStep }) => {
   const difficulty = difficulties[difficultyIndex]
 
   const { inGame } = useContext(settingsContext)
-  const [ _, setInGameStatus ] = inGame
+  const setInGameStatus = inGame[1]
 
   const [ isGameOver, setIsGameOver ] = useState(false)
 

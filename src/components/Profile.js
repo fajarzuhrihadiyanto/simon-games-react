@@ -40,7 +40,7 @@ const Profile = () => {
   useEffect(() => {
     // Only fetch scores if score is not available yet
     !scores && getScores()
-  }, [])
+  }, [scores])
 
   return (
     <VStack spacing={8}>

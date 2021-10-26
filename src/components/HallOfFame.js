@@ -32,25 +32,25 @@ const HallOfFame = () => {
   const diffChangeHandler = (e) => setDiffFilter(() => e.target.value)
   const timeChangeHandler = (e) => setTimeRangeFilter(() => e.target.value)
 
-  const getList = async () => {
-    try {
-      setLoading(() => true)
-      const list = await app.currentUser.functions.getScoreByModeDiff({
-        game_mode_id: modeFilter,
-        game_difficulty_id: diffFilter,
-        time_range: timeRangeFilter})
-      if (list) {
-        setList(list)
-      }
-    } catch (err) {
-      alert(err)
-      setList([])
-    } finally {
-      setLoading(() => false)
-    }
-  }
-
   useEffect(() => {
+    const getList = async () => {
+      try {
+        setLoading(() => true)
+        const list = await app.currentUser.functions.getScoreByModeDiff({
+          game_mode_id: modeFilter,
+          game_difficulty_id: diffFilter,
+          time_range: timeRangeFilter})
+        if (list) {
+          setList(list)
+        }
+      } catch (err) {
+        alert(err)
+        setList([])
+      } finally {
+        setLoading(() => false)
+      }
+    }
+
     getList()
   }, [modeFilter, diffFilter, timeRangeFilter])
 
