@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SIMON GAMES
 
-## Available Scripts
+This is my simple react app build with :
+- create react app
+- chakra ui
 
-In the project directory, you can run:
+## About Simon Games
+Simon games is an electronic game invented by Ralph H. Baer and Howard J. Morrison programmed by Lenny Cope. This game can simply played by matching a random series of tones and blinked light that appear on a bunch of colored button. Every time we can match the series, it will add one new random tones and blinked light to the series, so the game will getting longer and harder.
 
-### `npm start`
+This game is useful to improve our memory skills by memorizing the series of blinked button. Simon games also practice our concentration and patient, especially when we have reached dozens of series. To make the game more exciting, I create some variation to the game, such as game modes and difficulties by the number of buttons.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Game Modes
+### Classic Mode
+Classic mode is the original version of simon games, where we have to match the exact series of tones and blinked button. In every round, a bunch of buttons will be blinked for a second sequentially. After the last button blinked, we have to recreate the tones by click on the same button sequentially to go to the next round. Every round, a new blinked button will be added to the series.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Reverse Mode
+Reverse mode is a new variation of Simon says, where we have to recreate the tones in the reverse order of the original series. In other words, the last blinked button must be clicked first, and continue until the first blinked light which must be clicked at last.
 
-### `npm test`
+### Mirror Mode
+Mirror mode is a new variation of Simon says, where for each blinked button, we have to click the button that placed in the mirror position of the original one. If the blinked button is in the southwest position, we have to click the button in the northeast position, and vice versa.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Randomize Mode
+Randomize mode is a new variation of Simon says, where for each button we clicked, the order of a button will be shuffled. The goal here is to match the button order based on the color and tones, so pay attention to the color order, not just the position pattern.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##Game Difficulties
+There are some game difficulties :
+- Easy (2x2) as the original version
+- Hard (3x3)
+- Extreme (4x4)
