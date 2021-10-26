@@ -28,27 +28,27 @@ const GameOver = ({resetGame, setStep, gameModeIndex, difficultyIndex, score}) =
     setStep(0)
   }
 
-  const insertGame = async () => {
-    try {
-      const db = app.currentUser.mongoClient("mongodb-atlas").db(process.env.REACT_APP_DB_NAME)
-      const games = db.collection('games')
-
-      await games.insertOne({
-        user_id: app.currentUser.id,
-        game_mode_id: new BSON.ObjectID(gameModeId),
-        game_difficulty_id: new BSON.ObjectID(difficultyId),
-        score: score,
-        created_date: new Date()
-      })
-    } catch (err) {
-      alert(err)
-    }
-  }
-
   useEffect(() => {
+    const insertGame = async () => {
+      try {
+        const db = app.currentUser.mongoClient("mongodb-atlas").db(process.env.REACT_APP_DB_NAME)
+        const games = db.collection('games')
+
+        await games.insertOne({
+          user_id: app.currentUser.id,
+          game_mode_id: new BSON.ObjectID(gameModeId),
+          game_difficulty_id: new BSON.ObjectID(difficultyId),
+          score: score,
+          created_date: new Date()
+        })
+      } catch (err) {
+        alert(err)
+      }
+    }
+
     // Only insert game record if user is authenticated (not anonymous)
     app.currentUser.providerType === 'local-userpass' && insertGame()
-  }, [insertGame])
+  }, [difficultyId, gameModeId, score])
   return (
     <>
       <Heading>Game Over</Heading>
