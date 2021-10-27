@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 
 import * as BSON from 'bson'
-import * as Realm from 'realm-web'
 import { Grid, Text } from '@chakra-ui/react'
 
+import { app } from '../../providers/AppProvider'
 import { difficulties, gameModes } from '../../utilities'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const GameInfo = ({ score, gameModeIndex, difficultyIndex }) => {
   // Get the game mode and difficulty

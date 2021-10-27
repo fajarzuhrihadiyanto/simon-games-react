@@ -33,7 +33,7 @@ const howToContents = [
     title: 'Reverse Mode',
     content: <HowToGameVariants
       description={`
-        Reverse mode is a new variation of Simon says, where we have to recreate
+        Reverse mode is a new variation of simon games, where we have to recreate
         the tones in the reverse order of the original series. In other words,
         the last blinked button must be clicked first, and continue until the
         first blinked light which must be clicked at last.
@@ -45,7 +45,7 @@ const howToContents = [
     title: 'Mirror Mode',
     content: <HowToGameVariants
       description={`
-        Mirror mode is a new variation of Simon says, where for each blinked
+        Mirror mode is a new variation of simon games, where for each blinked
         button, we have to click the button that placed in the mirror position
         of the original one. If the blinked button is in the southwest position,
         we have to click the button in the northeast position, and vice versa.
@@ -57,7 +57,7 @@ const howToContents = [
     title: 'Randomize Mode',
     content: <HowToGameVariants
       description={`
-        Randomize mode is a new variation of Simon says, where for each button
+        Randomize mode is a new variation of simon games, where for each button
         we clicked, the order of a button will be shuffled. The goal here is to
         match the button order based on the color and tones, so pay attention to
         the color order, not just the position pattern.

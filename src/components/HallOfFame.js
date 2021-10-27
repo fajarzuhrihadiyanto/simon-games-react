@@ -1,16 +1,14 @@
 import { useContext, useEffect, useState } from 'react'
 
-import * as Realm from 'realm-web'
 import { Heading, IconButton, VStack } from '@chakra-ui/react'
 import { FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
+import { app } from '../providers/AppProvider'
 import { settingsContext } from '../providers/SettingsProvider'
 import { audio } from '../utilities'
 import HallOfFameFilter from './HallOfFameFilter'
 import HallOfFameList from './HallOfFameList'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const HallOfFame = () => {
   // Get sound fx state from the context

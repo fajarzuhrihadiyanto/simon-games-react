@@ -4,9 +4,8 @@ import * as Realm from 'realm-web'
 import { Button, FormControl, FormErrorMessage, Input, Link, Text } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 
+import { app } from '../../providers/AppProvider'
 import ModalWrapper from '../multiused/ModalWrapper'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const SignInModal = ({ signInModalOpen, signInModalOnClose, setIsLoggedIn }) => {
   const formValidation = values => {

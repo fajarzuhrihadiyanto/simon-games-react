@@ -1,12 +1,10 @@
 import { useContext } from 'react';
 
-import * as Realm from 'realm-web'
+import { app } from '../providers/AppProvider'
 import { settingsContext } from '../providers/SettingsProvider'
 import { audio } from '../utilities'
 import { Field, Form, Formik } from 'formik'
 import { Button, FormControl, FormErrorMessage, FormLabel, Grid, Input, VStack } from '@chakra-ui/react'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const ProfileUsername = ({ username }) => {
   const { soundFXSetting } = useContext(settingsContext)

@@ -1,9 +1,8 @@
-import * as Realm from 'realm-web'
 import { Button, FormControl, FormErrorMessage, Heading, Input, Text, VStack } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 import { useHistory } from 'react-router-dom'
 
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
+import { app } from '../providers/AppProvider'
 
 const ResetPassword = () => {
   const history = useHistory()

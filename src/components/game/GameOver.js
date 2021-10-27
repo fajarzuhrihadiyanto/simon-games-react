@@ -1,13 +1,11 @@
 import { useContext, useEffect } from 'react'
 
 import * as BSON from 'bson'
-import * as Realm from 'realm-web'
 import { Button, Heading, Text } from '@chakra-ui/react'
 
+import { app } from '../../providers/AppProvider'
 import { settingsContext } from '../../providers/SettingsProvider'
 import { audio, difficulties, gameModes } from '../../utilities'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const GameOver = ({resetGame, setStep, gameModeIndex, difficultyIndex, score}) => {
   // Get sound fx state from context

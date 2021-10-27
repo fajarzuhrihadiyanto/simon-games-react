@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
 import '@fontsource/bungee-shade'
 import '@fontsource/open-sans'
@@ -6,17 +6,20 @@ import * as Realm from 'realm-web'
 import { Box, ChakraProvider, Grid } from '@chakra-ui/react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { app } from './providers/AppProvider'
 import Main from './components/Main'
 import Menu from './components/menu/Menu'
 import SettingsProvider from './providers/SettingsProvider'
 import theme from './theme'
 
-const app = new Realm.App({ id: process.env.REACT_APP_ID })
-
 const App = () => {
-
-  // If no user, login anonymously
-  !app.currentUser && app.logIn(Realm.Credentials.anonymous())
+  useEffect(() => {
+    const loginAnonymous = async () => {
+      // If no user, login anonymously
+      !app.currentUser && await app.logIn(Realm.Credentials.anonymous())
+    }
+    loginAnonymous()
+  }, [])
 
   return (
     <BrowserRouter>

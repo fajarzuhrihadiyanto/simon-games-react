@@ -1,15 +1,13 @@
 import { useContext } from 'react'
 
-import * as Realm from 'realm-web'
 import { Button, FormControl, FormErrorMessage, Heading, IconButton, Input, Text, VStack } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 import { FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
+import { app } from '../providers/AppProvider'
 import { settingsContext } from '../providers/SettingsProvider'
 import { audio } from '../utilities'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const RequestResetPassword = () => {
   // Get sound fx state from the context

@@ -1,17 +1,15 @@
 import { useState, useContext, useRef } from 'react'
 
-import * as Realm from 'realm-web'
 import { IconButton, Menu, MenuButton, MenuItem, MenuList, useDisclosure } from '@chakra-ui/react'
 import { FaUser } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
 
-import { audio } from '../../utilities'
+import { app } from '../../providers/AppProvider'
 import { settingsContext } from '../../providers/SettingsProvider'
+import { audio } from '../../utilities'
 import SignInModal from './SignInModal'
 import SignUpModal from './SignUpModal'
 import Alert from '../multiused/Alert'
-
-const app = Realm.App.getApp(process.env.REACT_APP_ID)
 
 const UserMenu = () => {
   const history = useHistory()
